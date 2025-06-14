@@ -4,7 +4,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 
 ## Purpose
-- Pick some images from gallery (image picker)  
+- Pick some images from gallery (image picker) on my phone
 - upload picked image/images to cloudinary cloud with tag 
 - success / failure page (time out) 
 - back to main page (upload side)
@@ -36,6 +36,6 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 7. Preview Grid [done]
 8. Toast Implementation [done]
 9. Loading Spinner Implementation [done]
-10. Configure Auto Deployment of Github Actions 
 11. Abstract all config data to hooks [done]
+10. Configure Auto Deployment of Github Actions [done - manual trigger]
 

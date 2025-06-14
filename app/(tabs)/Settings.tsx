@@ -27,6 +27,13 @@ export default function SettingsScreen() {
   const [resource_type, setResourceType] = useState<string>(settings.resource_type);
   const [tags, setTags] = useState<string[]>(settings.tags); 
 
+
+  const handleButtonPress = () => {
+    setIsEditing(!isEditing);
+    setEditButtonText(isEditing ? "Edit Variables" : "Save Variables");
+  }
+
+
   useEffect(() => {
     if(cloud_name && upload_preset && resource_type && tags.length > 0) {
       setSettings({
@@ -42,6 +49,7 @@ export default function SettingsScreen() {
 
   return (
     <View style={styles.container}>
+      
       <Text style={styles.title}>Cloud Name</Text>
       <TextInput
         style={styles.input}
@@ -78,6 +86,7 @@ export default function SettingsScreen() {
         }
         }
       />
+
       <Text style={styles.title}>Resource Type</Text>
       <TextInput
         style={styles.input}
@@ -116,6 +125,7 @@ export default function SettingsScreen() {
         }
         }
       />
+
       <Text style={styles.title}>Current Values:</Text>
       <View style={styles.separator}></View>
       <Text style={styles.text}>Cloud Name: {cloud_name}</Text>
@@ -123,14 +133,13 @@ export default function SettingsScreen() {
       <Text style={styles.text}>Resource Type: {resource_type}</Text>
       <Text style={styles.text}>Tags: {tags.join(', ')}</Text>
 
+      <Button 
+        disabled={disabled} 
+        color="green" 
+        title={editButtonText} 
+        onPress={handleButtonPress}
+      />
 
-
-      <Button disabled={disabled} color="green" title={editButtonText} onPress={
-        () => {
-          setIsEditing(!isEditing);
-          setEditButtonText(isEditing ? "Edit Variables" : "Save Variables");
-        }
-        } />
     </View>
   );
 }
