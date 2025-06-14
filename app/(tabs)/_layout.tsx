@@ -1,5 +1,6 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import AntDesign from '@expo/vector-icons/AntDesign';
 import { Link, Tabs } from 'expo-router';
 import { Pressable } from 'react-native';
 
@@ -15,6 +16,12 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
+function TabBarIconAnt(
+    props: {name: React.ComponentProps<typeof AntDesign>['name'];  color: string;}) {
+    return <AntDesign size={28} style={{ marginBottom: -3 }} {...props} />;
+}
+
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
@@ -29,29 +36,15 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: 'Upload',
+          tabBarIcon: ({ color }) => <TabBarIconAnt name="upload" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="Settings"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Settings',
+          tabBarIcon: ({ color }) => <TabBarIcon name="gears" color={color} />,
         }}
       />
     </Tabs>
