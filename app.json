@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "CloudinaryUpload",
+    "name": "Cloudinary Connector",
     "slug": "CloudinaryUpload",
     "version": "1.0.0",
     "orientation": "portrait",
